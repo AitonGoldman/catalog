@@ -40,6 +40,7 @@ configmap:
             # pass requests for dynamic content to gunicorn
             location / {
               proxy_set_header Host $host;
+              proxy_set_header X-Forwarded-Proto $scheme;
               proxy_pass http://localhost:8080;
             }
           }
